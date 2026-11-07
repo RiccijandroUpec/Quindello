@@ -50,7 +50,7 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 
 ---
 
-## ✨ Funciones (v0.4.0)
+## ✨ Funciones (v0.4.1)
 
 ### 📻 Radio
 - **PTT**: mantén presionado para hablar, también con el botón **Volumen −**.
@@ -217,6 +217,7 @@ Useful for **hiking, mountaineering, camping, festivals, concerts, rural areas, 
 - [x] **v0.3.1:** conexión más fiable entre teléfonos (sin choques al conectar, reintentos siempre, búsqueda continua mientras estás solo).
 - [x] **v0.3.2:** Wi-Fi solo en Rendimiento; en Ahorro y Supervivencia el GPS solo se usa cuando hace falta.
 - [x] **v0.4:** más seguridad (mensajes firmados, llaves en el Keystore de Android), ícono nuevo, fuente de marca y modo de alto contraste para usar al sol.
+- [x] **v0.4.1:** sección "Acerca de" (novedades, privacidad, permisos, autor, licencias y botón para compartir la app).
 - [ ] **v0.5:** notificaciones de mensajes, audífonos Bluetooth, widget PTT.
 - [ ] **v0.6:** notas de voz guardadas y reenviadas (para quien estaba fuera de rango), mapas offline.
 - [ ] **v1.0:** versión release firmada, política de privacidad, idiomas (español, inglés, kichwa), Play Store.
