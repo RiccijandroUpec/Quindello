@@ -234,7 +234,7 @@ Abre un **[Issue](https://github.com/RiccijandroUpec/Quindello/issues/new)** e i
 
 ## 📄 Licencia
 
-© 2026 RiccijandroUpec. **Todos los derechos reservados.**
+© 2026 Riccijandro (Ecuador). **Todos los derechos reservados.**
 Quindello es **gratis para usar**. El código fuente es privado: no está permitido copiar, modificar, redistribuir ni vender la app ni partes de ella sin permiso del autor.
 
 Quindello usa componentes de terceros con sus propias licencias: [Concentus](https://github.com/lostromb/concentus) (BSD 3-Clause), [ZXing](https://github.com/zxing/zxing) y [ZXing Android Embedded](https://github.com/journeyapps/zxing-android-embedded) (Apache 2.0), AndroidX y Jetpack Compose (Apache 2.0), Google Play Services Nearby (términos de Google APIs) y la fuente [Space Grotesk](https://github.com/floriankarsten/space-grotesk) (SIL Open Font License 1.1).
