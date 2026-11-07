@@ -1,5 +1,7 @@
 # Quindello 📡 · Walkie talkie sin internet para Android
 
+![Quindello: walkie-talkie sin internet](assets/feature-1024x500.png)
+
 > **Habla con tu grupo aunque no haya señal.**
 > App de walkie talkie offline por **Bluetooth** con **red mesh**, chat, **SOS** y **radar** para encontrar a tu grupo.
 > Para la **montaña**, **conciertos**, **zonas rurales** y **emergencias**.
@@ -21,7 +23,7 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 
 **[👉 Descargar la última versión (APK)](https://github.com/RiccijandroUpec/Quindello/releases/latest)**
 
-1. Si tenías una versión anterior, **desinstálala primero**. Todos los teléfonos deben tener **la misma versión**: la v0.3.1 o posterior no se ve con la v0.3 ni anteriores.
+1. Si tienes la v0.3.x, instala la nueva **encima** (sin desinstalar): tu nombre, tus grupos y el historial se conservan. Todos los teléfonos deben tener **la misma versión**: la v0.4 usa un protocolo nuevo (más seguro) y no se ve con la v0.3.x ni anteriores.
 2. Abre el APK en el teléfono y permite **instalar apps de origen desconocido**.
 3. Requiere **Android 8.0+** y Google Play Services. Para probarla necesitas **al menos dos teléfonos reales**: los emuladores no tienen Bluetooth real.
 
@@ -43,12 +45,12 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 - 👥 **Pensado para grupos:** frecuencias, roles y admin.
 - 🆘 **Emergencias integradas:** SOS, estados rápidos, radar y "Buscar a alguien".
 - 🔁 **Red mesh:** más alcance mientras más personas la usan.
-- 🔐 **Privado:** cifrado AES-256, sin cuentas y sin servidores.
+- 🔐 **Privado:** cifrado AES-256, mensajes firmados, llaves guardadas en el Keystore del teléfono, sin cuentas y sin servidores.
 - 🔋 **Modos de energía:** el Wi-Fi solo se enciende en modo Rendimiento.
 
 ---
 
-## ✨ Funciones (v0.3.2)
+## ✨ Funciones (v0.4.0)
 
 ### 📻 Radio
 - **PTT**: mantén presionado para hablar, también con el botón **Volumen −**.
@@ -182,11 +184,14 @@ Useful for **hiking, mountaineering, camping, festivals, concerts, rural areas, 
 
 ## 🔐 Seguridad y privacidad
 - **Sin datos personales:** no hay cuentas, ni servidores, ni analíticas. Nada sale de tu teléfono hacia internet.
-- **Identidad:** cada teléfono crea un par de llaves EC P-256. La huella se ve en Ajustes.
-- **Grupo:** llave AES-256 compartida. Para unir un enlace, el otro debe demostrar que tiene la llave (saludo cifrado); si no, se corta.
-- **Entregar la llave:** por QR (en persona) o cifrada solo para quien pidió entrar (ECDH).
-- **Admin:** firma sus órdenes con ECDSA; los miembros las verifican con su llave pública.
-- ⚠️ **Limitaciones conocidas:** las llaves se guardan en el almacenamiento privado de la app (todavía no en el Keystore). Si se expulsa a alguien, quien no esté en rango en ese momento debe volver a entrar con el QR.
+- **Identidad:** cada teléfono crea un par de llaves EC P-256. La huella se ve en Ajustes. Nadie puede hacerse pasar por otro teléfono.
+- **Mensajes firmados:** texto, SOS, estados y ubicación van firmados por quien los escribió.
+- **Grupo:** llave AES-256 compartida. Para unir un enlace, el otro debe demostrar que tiene la llave con un saludo firmado y cifrado; si no, se corta.
+- **Entregar la llave:** por QR (en persona, siempre como miembro) o cifrada solo para quien pidió entrar.
+- **Admin:** firma sus órdenes; una orden vieja no se puede repetir y una expulsión cambia la llave del grupo.
+- **En el teléfono:** la llave privada, las llaves de los grupos y el historial del chat se guardan cifrados con el Keystore de Android.
+- **Ubicación:** en frecuencias públicas tu posición solo se envía con un SOS. En tu grupo, solo si activas "Compartir mi ubicación".
+- ⚠️ **Limitaciones conocidas:** si se expulsa a alguien, quien no esté en rango en ese momento debe volver a entrar con el QR.
 
 
 ---
@@ -211,8 +216,9 @@ Useful for **hiking, mountaineering, camping, festivals, concerts, rural areas, 
 - [x] **v0.3:** Buscar a alguien (flecha con brújula, distancia en vivo y vibración).
 - [x] **v0.3.1:** conexión más fiable entre teléfonos (sin choques al conectar, reintentos siempre, búsqueda continua mientras estás solo).
 - [x] **v0.3.2:** Wi-Fi solo en Rendimiento; en Ahorro y Supervivencia el GPS solo se usa cuando hace falta.
-- [ ] **v0.4:** notificaciones de mensajes, audífonos Bluetooth, widget PTT, llaves en Android Keystore.
-- [ ] **v0.5:** notas de voz guardadas y reenviadas (para quien estaba fuera de rango), mapas offline.
+- [x] **v0.4:** más seguridad (mensajes firmados, llaves en el Keystore de Android), ícono nuevo, fuente de marca y modo de alto contraste para usar al sol.
+- [ ] **v0.5:** notificaciones de mensajes, audífonos Bluetooth, widget PTT.
+- [ ] **v0.6:** notas de voz guardadas y reenviadas (para quien estaba fuera de rango), mapas offline.
 - [ ] **v1.0:** versión release firmada, política de privacidad, idiomas (español, inglés, kichwa), Play Store.
 - [ ] **Futuro:** accesorio con radio LoRa para alcance de kilómetros.
 
@@ -231,7 +237,7 @@ Abre un **[Issue](https://github.com/RiccijandroUpec/Quindello/issues/new)** e i
 © 2026 RiccijandroUpec. **Todos los derechos reservados.**
 Quindello es **gratis para usar**. El código fuente es privado: no está permitido copiar, modificar, redistribuir ni vender la app ni partes de ella sin permiso del autor.
 
-Quindello usa componentes de terceros con sus propias licencias: [Concentus](https://github.com/lostromb/concentus) (BSD 3-Clause), [ZXing](https://github.com/zxing/zxing) y [ZXing Android Embedded](https://github.com/journeyapps/zxing-android-embedded) (Apache 2.0), AndroidX y Jetpack Compose (Apache 2.0) y Google Play Services Nearby (términos de Google APIs).
+Quindello usa componentes de terceros con sus propias licencias: [Concentus](https://github.com/lostromb/concentus) (BSD 3-Clause), [ZXing](https://github.com/zxing/zxing) y [ZXing Android Embedded](https://github.com/journeyapps/zxing-android-embedded) (Apache 2.0), AndroidX y Jetpack Compose (Apache 2.0), Google Play Services Nearby (términos de Google APIs) y la fuente [Space Grotesk](https://github.com/floriankarsten/space-grotesk) (SIL Open Font License 1.1).
 
 ---
 
