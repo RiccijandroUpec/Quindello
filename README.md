@@ -228,9 +228,10 @@ Useful for **hiking, mountaineering, camping, festivals, concerts, rural areas, 
 - [x] **v0.4:** más seguridad (mensajes firmados, llaves en el Keystore de Android), ícono nuevo, fuente de marca y modo de alto contraste para usar al sol.
 - [x] **v0.4.1:** sección "Acerca de" (novedades, privacidad, permisos, autor, licencias y botón para compartir la app).
 - [x] **v0.5:** notificaciones de SOS y mensajes (con Responder), sirena por volumen de alarma y firma de release definitiva.
-- [ ] **v0.5.x:** audífonos Bluetooth, widget PTT.
+- [x] **Sitio web** en [quindello.cyrshop.app](https://quindello.cyrshop.app/) con política de privacidad (noviembre 2026).
+- [ ] **v0.5.x:** botones Compartir y Actualizar apuntando al sitio, audífonos Bluetooth, widget PTT.
 - [ ] **v0.6:** notas de voz guardadas y reenviadas (para quien estaba fuera de rango), mapas offline.
-- [ ] **v1.0:** versión release firmada, política de privacidad, idiomas (español, inglés, kichwa), Play Store.
+- [ ] **v1.0:** idiomas (español, inglés, kichwa) y Google Play.
 - [ ] **Futuro:** accesorio con radio LoRa para alcance de kilómetros.
 
 ---
