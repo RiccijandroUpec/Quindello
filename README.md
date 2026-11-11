@@ -26,7 +26,7 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 
 **[👉 Descargar la última versión (APK)](https://github.com/RiccijandroUpec/Quindello/releases/latest)**
 
-1. Si tienes la v0.3.x, instala la nueva **encima** (sin desinstalar): tu nombre, tus grupos y el historial se conservan. Todos los teléfonos deben tener **la misma versión**: la v0.4 usa un protocolo nuevo (más seguro) y no se ve con la v0.3.x ni anteriores.
+1. **Si tienes la v0.4.x o anterior, desinstálala antes de instalar la v0.5.0** (solo esta vez): la app ahora va firmada con su llave definitiva y Android no deja instalarla encima. Se pierden tu nombre, tus grupos y el historial; para volver a una frecuencia privada pide que te inviten de nuevo. Desde la v0.5.0, las nuevas versiones se instalan encima sin perder nada. La v0.5 se ve con la v0.4.x (mismo protocolo), pero no con la v0.3.x ni anteriores.
 2. Abre el APK en el teléfono y permite **instalar apps de origen desconocido**.
 3. Requiere **Android 8.0+** y Google Play Services. Para probarla necesitas **al menos dos teléfonos reales**: los emuladores no tienen Bluetooth real.
 
@@ -53,7 +53,7 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 
 ---
 
-## ✨ Funciones (v0.4.1)
+## ✨ Funciones (v0.5.0)
 
 ### 📻 Radio
 - **PTT**: mantén presionado para hablar, también con el botón **Volumen −**.
@@ -61,6 +61,12 @@ Quindello convierte tu celular Android en un **radio walkie talkie que funciona 
 - **Voz comprimida con Opus**: ~20 veces menos datos que el audio sin comprimir.
 - **Beep Quindello** al terminar cada transmisión.
 - **Sigue encendido al salir de la app**, con una notificación fija y un botón Apagar.
+
+### 🔔 Notificaciones (con la app en segundo plano)
+- **SOS y estados urgentes**: aviso con vibración fuerte, distancia y botón **Buscar**. La sirena suena por el **volumen de alarma**, aunque tengas la música en cero.
+- **Mensajes de texto**: aviso con los últimos mensajes y botón **Responder** sin abrir la app.
+- En la **pantalla bloqueada** solo se ve "Nuevo mensaje" o "SOS en tu frecuencia".
+- Cada aviso (SOS y alertas, Mensajes, Radio encendido) se puede apagar por separado en los ajustes de Android.
 
 ### 💬 Chat
 - Mensajes de texto por la misma frecuencia, sin internet.
@@ -221,7 +227,8 @@ Useful for **hiking, mountaineering, camping, festivals, concerts, rural areas, 
 - [x] **v0.3.2:** Wi-Fi solo en Rendimiento; en Ahorro y Supervivencia el GPS solo se usa cuando hace falta.
 - [x] **v0.4:** más seguridad (mensajes firmados, llaves en el Keystore de Android), ícono nuevo, fuente de marca y modo de alto contraste para usar al sol.
 - [x] **v0.4.1:** sección "Acerca de" (novedades, privacidad, permisos, autor, licencias y botón para compartir la app).
-- [ ] **v0.5:** notificaciones de mensajes, audífonos Bluetooth, widget PTT.
+- [x] **v0.5:** notificaciones de SOS y mensajes (con Responder), sirena por volumen de alarma y firma de release definitiva.
+- [ ] **v0.5.x:** audífonos Bluetooth, widget PTT.
 - [ ] **v0.6:** notas de voz guardadas y reenviadas (para quien estaba fuera de rango), mapas offline.
 - [ ] **v1.0:** versión release firmada, política de privacidad, idiomas (español, inglés, kichwa), Play Store.
 - [ ] **Futuro:** accesorio con radio LoRa para alcance de kilómetros.
