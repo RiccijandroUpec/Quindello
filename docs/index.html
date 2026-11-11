@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quindello · Walkie talkie sin internet para Android (Bluetooth y red mesh)</title>
+<meta name="description" content="Quindello es un walkie talkie que funciona sin internet ni señal: voz PTT, chat, SOS con GPS y radar por Bluetooth con red mesh. Gratis, sin cuentas y sin servidores. Para montaña, conciertos y emergencias.">
+<meta name="keywords" content="walkie talkie sin internet, walkie talkie offline, app sin señal, chat sin internet, red mesh, Bluetooth, SOS, montañismo, Ecuador">
+<link rel="canonical" href="https://riccijandroupec.github.io/Quindello/">
+<meta name="theme-color" content="#09160F">
+<link rel="icon" type="image/png" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/icon-512.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:site_name" content="Quindello">
+<meta property="og:title" content="Quindello · Habla aunque no haya señal">
+<meta property="og:description" content="Walkie talkie sin internet para Android: voz, chat, SOS y radar por Bluetooth con red mesh. Gratis y sin cuentas.">
+<meta property="og:url" content="https://riccijandroupec.github.io/Quindello/">
+<meta property="og:image" content="https://riccijandroupec.github.io/Quindello/assets/feature-1024x500.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Quindello",
+  "alternateName": "Quindello walkie talkie sin internet",
+  "description": "Walkie talkie sin internet para Android: voz push-to-talk, chat, SOS con GPS y radar por Bluetooth con red mesh. Sin cuentas y sin servidores.",
+  "operatingSystem": "Android 8.0+",
+  "applicationCategory": "CommunicationApplication",
+  "softwareVersion": "0.4.1",
+  "inLanguage": "es",
+  "image": "https://riccijandroupec.github.io/Quindello/assets/icon-512.png",
+  "screenshot": "https://riccijandroupec.github.io/Quindello/assets/feature-1024x500.png",
+  "url": "https://riccijandroupec.github.io/Quindello/",
+  "downloadUrl": "https://github.com/RiccijandroUpec/Quindello/releases/latest",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Riccijandro", "address": { "@type": "PostalAddress", "addressCountry": "EC" } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Quindello funciona sin internet ni señal?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. No usa datos móviles, Wi-Fi de internet ni servidores. Los teléfonos se conectan directamente por Bluetooth, y por Wi-Fi directo en modo Rendimiento." } },
+    { "@type": "Question", "name": "¿Qué alcance tiene?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Unos 100 m al aire libre entre dos teléfonos y de 10 a 50 m entre paredes o en el bosque. Con la red mesh, cada teléfono intermedio suma más alcance." } },
+    { "@type": "Question", "name": "¿Es gratis? ¿Necesito una cuenta?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Es gratis y no necesita cuenta, número de teléfono ni correo." } },
+    { "@type": "Question", "name": "¿Alguien puede escuchar mis conversaciones?",
+      "acceptedAnswer": { "@type": "Answer", "text": "En las frecuencias públicas, sí, como en un walkie talkie real. Las frecuencias privadas van cifradas con AES-256-GCM y solo entra quien el admin acepta." } },
+    { "@type": "Question", "name": "¿Funciona en iPhone?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Por ahora solo en Android 8.0 o superior." } }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --fondo: #09160F; --superficie: #0F2018; --superficie-alta: #152B20; --borde: #244536;
+    --texto: #EFF8F2; --texto-2: #A3BDB0; --texto-3: #6B897B;
+    --quinde: #2E9E6B; --quinde-claro: #3CC086; --brote: #A8E6C1; --coral: #F2705E;
+    --radio: 18px; --ancho: 1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--fondo); color: var(--texto);
+    font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--quinde-claro); }
+  .contenedor { max-width: var(--ancho); margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(9,22,15,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borde); }
+  header .contenedor { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .marca { display: flex; align-items: center; gap: 10px; color: var(--texto); text-decoration: none; font-weight: 700; font-size: 1.15rem; }
+  .marca img { width: 36px; height: 36px; border-radius: 10px; }
+  nav a { color: var(--texto-2); text-decoration: none; margin-left: 20px; font-size: .95rem; }
+  nav a:hover { color: var(--texto); }
+  @media (max-width: 640px) { nav a:not(.boton) { display: none; } }
+
+  .boton {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px;
+    background: var(--quinde); color: #fff; font-weight: 700; text-decoration: none; transition: background .15s, transform .15s;
+  }
+  .boton:hover { background: var(--quinde-claro); transform: translateY(-1px); }
+  .boton.chico { padding: 9px 16px; font-size: .9rem; margin-left: 20px; }
+  .boton.secundario { background: transparent; border: 1px solid var(--borde); color: var(--texto); }
+  .boton.secundario:hover { background: var(--superficie-alta); }
+
+  .hero { padding: 72px 0 56px; }
+  .hero .contenedor { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  @media (max-width: 860px) { .hero .contenedor { grid-template-columns: 1fr; } .hero .visual { order: -1; } }
+  .etiqueta { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--superficie-alta); color: var(--brote); font-size: .85rem; margin-bottom: 18px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.08; margin: 0 0 18px; letter-spacing: -.02em; }
+  h1 span { color: var(--quinde-claro); }
+  .hero p.lead { font-size: 1.15rem; color: var(--texto-2); margin: 0 0 28px; max-width: 34em; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+  .nota { color: var(--texto-3); font-size: .9rem; }
+
+  .visual { display: flex; justify-content: center; }
+  .telefono {
+    width: 270px; aspect-ratio: 9 / 18.5; border-radius: 38px; background: var(--superficie);
+    border: 8px solid #1c3829; box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px var(--borde);
+    padding: 26px 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  }
+  .frecuencia { text-align: center; }
+  .frecuencia small { color: var(--texto-3); letter-spacing: .12em; font-size: .7rem; }
+  .frecuencia div { font-size: 3.6rem; font-weight: 700; color: var(--brote); line-height: 1; }
+  .frecuencia p { margin: 6px 0 0; color: var(--texto-2); font-size: .85rem; }
+  .ptt {
+    width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff8b7b, var(--coral) 55%, #c94f3f);
+    display: grid; place-items: center; font-weight: 700; color: #fff; letter-spacing: .08em;
+    box-shadow: 0 0 0 0 rgba(242,112,94,.5); animation: pulso 2.4s infinite;
+  }
+  @keyframes pulso { 0% { box-shadow: 0 0 0 0 rgba(242,112,94,.45); } 70% { box-shadow: 0 0 0 26px rgba(242,112,94,0); } 100% { box-shadow: 0 0 0 0 rgba(242,112,94,0); } }
+  @media (prefers-reduced-motion: reduce) { .ptt { animation: none; } html { scroll-behavior: auto; } }
+  .personas { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .personas span { background: var(--superficie-alta); border: 1px solid var(--borde); border-radius: 999px; padding: 4px 10px; font-size: .75rem; color: var(--texto-2); }
+  .personas span::before { content: "●"; color: var(--quinde-claro); margin-right: 5px; }
+
+  section { padding: 64px 0; }
+  section.alterna { background: var(--superficie); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+  h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 0 0 10px; letter-spacing: -.01em; }
+  .sub { color: var(--texto-2); margin: 0 0 36px; max-width: 40em; }
+
+  .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .tarjeta { background: var(--superficie-alta); border: 1px solid var(--borde); border-radius: var(--radio); padding: 22px; }
+  section.alterna .tarjeta { background: var(--fondo); }
+  .tarjeta .ico { font-size: 1.7rem; margin-bottom: 8px; }
+  .tarjeta h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .tarjeta p { margin: 0; color: var(--texto-2); font-size: .97rem; }
+
+  .mesh { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 28px; font-size: 1.05rem; }
+  .mesh .nodo { background: var(--superficie-alta); border: 1px solid var(--borde); padding: 10px 16px; border-radius: 14px; }
+  .mesh .flecha { color: var(--quinde-claro); font-weight: 700; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  th { color: var(--texto-3); font-weight: 500; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+  td:first-child { font-weight: 700; white-space: nowrap; }
+  .tabla-envoltura { overflow-x: auto; background: var(--fondo); border: 1px solid var(--borde); border-radius: var(--radio); }
+
+  details { background: var(--superficie-alta); border: 1px solid var(--borde); border-radius: 14px; padding: 16px 20px; margin-bottom: 10px; }
+  details summary { cursor: pointer; font-weight: 700; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; float: right; color: var(--quinde-claro); font-size: 1.2rem; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--texto-2); margin: 10px 0 0; }
+
+  .pasos { counter-reset: paso; display: grid; gap: 12px; padding: 0; margin: 0 0 28px; list-style: none; }
+  .pasos li { counter-increment: paso; display: flex; gap: 14px; align-items: flex-start; }
+  .pasos li::before { content: counter(paso); flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--quinde); color: #fff; font-weight: 700; display: grid; place-items: center; }
+  .descarga { text-align: center; }
+  .descarga .pasos { max-width: 560px; margin: 0 auto 32px; text-align: left; }
+
+  footer { padding: 36px 0 48px; color: var(--texto-3); font-size: .9rem; border-top: 1px solid var(--borde); }
+  footer .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer a { color: var(--texto-2); text-decoration: none; margin-right: 16px; }
+  footer a:hover { color: var(--texto); }
+  .en { color: var(--texto-3); font-size: .9rem; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="contenedor">
+    <a class="marca" href="#"><img src="assets/icon-512.png" alt="" width="36" height="36">Quindello</a>
+    <nav>
+      <a href="#funciones">Funciones</a>
+      <a href="#para-quien">Para quién</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="boton chico" href="#descargar">Descargar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta">📡 Gratis · Sin cuentas · Sin servidores</span>
+        <h1>El walkie talkie que funciona <span>sin internet</span></h1>
+        <p class="lead">Quindello convierte tu Android en un radio para hablar, escribir, compartir tu ubicación y pedir ayuda con tu grupo, <strong>aunque no haya señal</strong>. Los teléfonos se conectan entre ellos por Bluetooth y forman una red mesh.</p>
+        <div class="acciones">
+          <a class="boton" href="https://github.com/RiccijandroUpec/Quindello/releases/latest">⬇️ Descargar APK gratis</a>
+          <a class="boton secundario" href="#funciones">Ver funciones</a>
+        </div>
+        <p class="nota">Android 8.0 o superior · Versión 0.4.1 · Hecho en Ecuador 🇪🇨</p>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="telefono">
+          <div class="frecuencia"><small>FRECUENCIA</small><div>07</div><p>4 personas en rango</p></div>
+          <div class="ptt">HABLAR</div>
+          <div class="personas"><span>Ana</span><span>Luis</span><span>Pedro</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="funciones" class="alterna">
+    <div class="contenedor">
+      <h2>Todo lo que necesita un grupo sin señal</h2>
+      <p class="sub">No es solo un chat offline: es un radio de voz pensado para grupos, con herramientas de emergencia.</p>
+      <div class="rejilla">
+        <div class="tarjeta"><div class="ico">🎙️</div><h3>Voz push-to-talk</h3><p>Mantén presionado y habla, como en un walkie real. También con el botón de bajar volumen. 99 frecuencias.</p></div>
+        <div class="tarjeta"><div class="ico">💬</div><h3>Chat sin internet</h3><p>Mensajes de texto por la misma frecuencia, con historial guardado por canal.</p></div>
+        <div class="tarjeta"><div class="ico">🆘</div><h3>SOS con GPS</h3><p>Envía tu ubicación, hace sonar una sirena en los demás teléfonos y se repite cada minuto. Estados rápidos y pase de lista.</p></div>
+        <div class="tarjeta"><div class="ico">🧭</div><h3>Radar y "Buscar a alguien"</h3><p>Dirección y distancia de cada persona. Una flecha con brújula te lleva hasta ella y vibra cuando vas bien.</p></div>
+        <div class="tarjeta"><div class="ico">🔐</div><h3>Frecuencias privadas</h3><p>Cifradas con AES-256-GCM, con admin, roles e invitación por QR. Quien reenvía tus mensajes no puede leerlos.</p></div>
+        <div class="tarjeta"><div class="ico">🔋</div><h3>Modos de energía</h3><p>Ahorro (solo Bluetooth), Rendimiento (mejor voz y alcance) y Supervivencia para aguantar días.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mesh">
+    <div class="contenedor">
+      <h2>Mientras más personas, más lejos llega</h2>
+      <p class="sub">Cada teléfono funciona como repetidor. Si Ana está lejos de Pedro pero Luis está en medio, el mensaje pasa por el teléfono de Luis automáticamente.</p>
+      <div class="mesh" aria-label="Ana envía a Luis, Luis reenvía a Pedro">
+        <span class="nodo">📱 Ana</span><span class="flecha">→</span><span class="nodo">📱 Luis</span><span class="flecha">→</span><span class="nodo">📱 Pedro</span>
+      </div>
+      <div class="tabla-envoltura">
+        <table>
+          <thead><tr><th>Entorno</th><th>Directo</th><th>Con red mesh</th></tr></thead>
+          <tbody>
+            <tr><td>Al aire libre</td><td>~100 m</td><td>+100 m por cada teléfono intermedio</td></tr>
+            <tr><td>Edificios o bosque</td><td>10 – 50 m</td><td>Se suma con cada salto</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="para-quien" class="alterna">
+    <div class="contenedor">
+      <h2>¿Para quién es?</h2>
+      <p class="sub">Para cualquier lugar donde la señal no llega o la red se satura.</p>
+      <div class="rejilla">
+        <div class="tarjeta"><div class="ico">🥾</div><h3>Montañismo y trekking</h3><p>Volcanes, páramos y senderos sin cobertura: el grupo sigue comunicado y nadie se pierde.</p></div>
+        <div class="tarjeta"><div class="ico">🎪</div><h3>Conciertos y estadios</h3><p>Cuando la red celular se satura, tu grupo de amigos sigue hablando.</p></div>
+        <div class="tarjeta"><div class="ico">🆘</div><h3>Emergencias</h3><p>Sismos, apagones o caída de la red: SOS con ubicación y pase de lista.</p></div>
+        <div class="tarjeta"><div class="ico">🌾</div><h3>Zonas rurales</h3><p>Fincas, comunidades y lugares con poca señal.</p></div>
+        <div class="tarjeta"><div class="ico">👨‍👩‍👧</div><h3>Familias y viajes</h3><p>Parques, ferias o cruceros sin roaming: encuentra a los tuyos con la flecha.</p></div>
+        <div class="tarjeta"><div class="ico">🧑‍🚒</div><h3>Rescate y equipos</h3><p>Scouts, brigadas y equipos de trabajo con frecuencias privadas y roles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="contenedor">
+      <h2>Preguntas frecuentes</h2>
+      <p class="sub">Lo que más nos preguntan sobre Quindello.</p>
+      <details><summary>¿Funciona sin internet ni señal?</summary><p>Sí. No usa datos móviles, Wi-Fi de internet ni servidores. Los teléfonos se conectan directamente por Bluetooth, y por Wi-Fi directo en modo Rendimiento.</p></details>
+      <details><summary>¿Qué alcance tiene?</summary><p>Unos 100 m al aire libre entre dos teléfonos, y de 10 a 50 m entre paredes o en el bosque. Con la red mesh, cada teléfono intermedio suma más alcance.</p></details>
+      <details><summary>¿Es gratis? ¿Necesito una cuenta?</summary><p>Es gratis y no necesita cuenta, número de teléfono ni correo.</p></details>
+      <details><summary>¿Alguien puede escuchar mis conversaciones?</summary><p>En las frecuencias públicas, sí: como en un walkie talkie real, cualquiera en esa frecuencia te escucha. Para hablar en privado, crea una frecuencia privada: va cifrada con AES-256-GCM y solo entra quien el admin acepta.</p></details>
+      <details><summary>¿Gasta mucha batería?</summary><p>En modo Ahorro (por defecto) usa solo Bluetooth y el GPS se enciende solo cuando hace falta. El modo Supervivencia está pensado para aguantar días.</p></details>
+      <details><summary>¿Por qué pide ubicación si no usa internet?</summary><p>Android exige el permiso de ubicación para buscar otros teléfonos por Bluetooth. El GPS solo se usa para el radar, para buscar a alguien y para el SOS. Tu ubicación nunca sale a internet.</p></details>
+      <details><summary>¿Funciona en iPhone?</summary><p>Por ahora solo en Android 8.0 o superior.</p></details>
+    </div>
+  </section>
+
+  <section id="descargar" class="alterna descarga">
+    <div class="contenedor">
+      <h2>Descarga Quindello gratis</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto">Instálalo en todos los teléfonos de tu grupo antes de salir: sin internet no se puede descargar.</p>
+      <ol class="pasos">
+        <li>Descarga el archivo APK desde el botón de abajo.</li>
+        <li>Ábrelo en el teléfono y permite instalar apps de origen desconocido.</li>
+        <li>Pon tu nombre, acepta los permisos y elige la misma frecuencia que tu grupo.</li>
+        <li>Toca <strong>Encender radio</strong> y mantén presionado <strong>Hablar</strong>.</li>
+      </ol>
+      <a class="boton" href="https://github.com/RiccijandroUpec/Quindello/releases/latest">⬇️ Descargar la última versión (APK)</a>
+      <p class="nota" style="margin-top:14px">Todos los teléfonos deben tener la misma versión de la app para verse.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <div>
+      <strong style="color:var(--texto)">Quindello</strong> · Habla aunque no haya señal.<br>
+      © 2026 Riccijandro, Ecuador. <em>Quinde</em> es el nombre andino del colibrí.
+      <p class="en" lang="en">Quindello is a free offline walkie talkie app for Android: push-to-talk voice, chat, SOS and radar over Bluetooth mesh. No internet, no accounts, no servers.</p>
+    </div>
+    <div>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="https://github.com/RiccijandroUpec/Quindello">GitHub</a>
+      <a href="https://github.com/RiccijandroUpec/Quindello/issues">Reportar un problema</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

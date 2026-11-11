@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad · Quindello</title>
+<meta name="description" content="Política de privacidad de Quindello, el walkie talkie sin internet para Android. Sin cuentas, sin servidores y sin analíticas.">
+<link rel="canonical" href="https://riccijandroupec.github.io/Quindello/privacidad.html">
+<link rel="icon" type="image/png" href="assets/icon-512.png">
+<meta name="theme-color" content="#09160F">
+<style>
+  body { margin: 0; background: #09160F; color: #EFF8F2; font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.65; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+  a { color: #3CC086; }
+  h1 { font-size: 2rem; margin: 24px 0 4px; }
+  h2 { font-size: 1.25rem; margin: 36px 0 8px; color: #A8E6C1; }
+  p, li { color: #C9DBD1; }
+  .fecha { color: #6B897B; margin: 0 0 28px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .95rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #244536; vertical-align: top; }
+  th { color: #6B897B; font-weight: 500; }
+  td:first-child { font-weight: 700; color: #EFF8F2; white-space: nowrap; }
+  .resumen { background: #152B20; border: 1px solid #244536; border-radius: 14px; padding: 18px 22px; }
+  .volver { text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+  <a class="volver" href="./">← Volver a Quindello</a>
+  <h1>Política de privacidad de Quindello</h1>
+  <p class="fecha">Última actualización: 11 de noviembre de 2026 · Aplica a la app Quindello para Android (com.quindello.radio).</p>
+
+  <div class="resumen">
+    <strong>En resumen:</strong> Quindello no tiene cuentas, servidores ni analíticas. No recopilamos, vendemos ni compartimos tus datos. Lo que envías (voz, mensajes, ubicación) viaja solo de tu teléfono a los teléfonos cercanos de tu grupo, por Bluetooth o Wi-Fi directo, sin pasar por internet.
+  </div>
+
+  <h2>1. Quién es responsable</h2>
+  <p>Quindello es desarrollada por Riccijandro, desde Ecuador. Para preguntas sobre esta política, escribe en <a href="https://github.com/RiccijandroUpec/Quindello/issues">github.com/RiccijandroUpec/Quindello/issues</a>.</p>
+
+  <h2>2. Qué datos maneja la app y dónde quedan</h2>
+  <table>
+    <thead><tr><th>Dato</th><th>Para qué</th><th>A dónde va</th></tr></thead>
+    <tbody>
+      <tr><td>Nombre que eliges</td><td>Que tu grupo sepa quién habla.</td><td>Se guarda en tu teléfono y se muestra a los teléfonos cercanos de tu frecuencia.</td></tr>
+      <tr><td>Voz</td><td>Hablar con push-to-talk.</td><td>Solo se graba mientras mantienes presionado <em>Hablar</em>. Se envía a los teléfonos cercanos y no se guarda.</td></tr>
+      <tr><td>Mensajes de texto</td><td>El chat de cada frecuencia.</td><td>Se envían a los teléfonos cercanos. El historial se guarda cifrado en tu teléfono.</td></tr>
+      <tr><td>Ubicación (GPS)</td><td>Radar, "Buscar a alguien" y SOS.</td><td>Se envía solo a tu grupo si lo activas, a quien te busca, o a todos los cercanos cuando envías un SOS. En frecuencias públicas solo sale con un SOS.</td></tr>
+      <tr><td>Nivel de batería</td><td>Que tu grupo vea cuánta batería te queda.</td><td>Se envía a los teléfonos cercanos de tu frecuencia.</td></tr>
+      <tr><td>Llaves de cifrado y grupos</td><td>Identificar tu teléfono y cifrar las frecuencias privadas.</td><td>Se guardan cifradas en tu teléfono con el Android Keystore. Nunca salen de él, salvo la llave del grupo, que se entrega cifrada a quien el admin acepta.</td></tr>
+      <tr><td>Cámara</td><td>Escanear el QR de invitación a una frecuencia privada.</td><td>La imagen se procesa en el teléfono y no se guarda ni se envía.</td></tr>
+    </tbody>
+  </table>
+  <p>Ninguno de estos datos se envía a nosotros ni a servidores en internet. No tenemos forma de verlos.</p>
+
+  <h2>3. Permisos</h2>
+  <ul>
+    <li><strong>Micrófono:</strong> para hablar. Solo graba mientras mantienes presionado el botón.</li>
+    <li><strong>Dispositivos cercanos (Bluetooth y Wi-Fi):</strong> para encontrar y conectar con otros teléfonos.</li>
+    <li><strong>Ubicación:</strong> Android la exige para buscar por Bluetooth. El GPS solo se usa para el radar, buscar a alguien y el SOS.</li>
+    <li><strong>Notificaciones y servicio en primer plano:</strong> para mantener el radio encendido con un aviso fijo mientras usas otras apps, con un botón para apagarlo.</li>
+    <li><strong>Vibración:</strong> para avisarte cuando apuntas hacia la persona que buscas.</li>
+    <li><strong>Cámara:</strong> solo para escanear el QR de invitación.</li>
+  </ul>
+
+  <h2>4. Quién puede ver lo que envías</h2>
+  <p>En las <strong>frecuencias públicas</strong> (01 a 99), cualquier persona cercana que esté en la misma frecuencia puede escucharte y leerte, como en un walkie talkie real. No compartas información sensible ahí.</p>
+  <p>En las <strong>frecuencias privadas</strong>, todo va cifrado con AES-256-GCM. Solo lo leen los miembros que el admin aceptó. Los teléfonos que reenvían tus mensajes por la red mesh no pueden leerlos.</p>
+
+  <h2>5. Servicios de terceros</h2>
+  <p>Para conectar los teléfonos, Quindello usa <strong>Nearby Connections</strong> de Google Play Services, que funciona sin internet. Google Play Services puede procesar información técnica del dispositivo según la <a href="https://policies.google.com/privacy">política de privacidad de Google</a>.</p>
+  <p>Quindello no incluye anuncios, analíticas ni herramientas de seguimiento. Los botones <em>Actualizar</em> y <em>Reportar</em> abren GitHub en tu navegador; ahí aplica la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement">política de privacidad de GitHub</a>.</p>
+
+  <h2>6. Cuánto tiempo se guardan y cómo borrarlos</h2>
+  <p>Todo queda en tu teléfono hasta que lo borres. Al salir de una frecuencia privada se borran su llave y su historial. Puedes borrar todos los datos desinstalando Quindello o desde <em>Ajustes de Android → Apps → Quindello → Almacenamiento → Borrar datos</em>. Como no tenemos servidores, no hay datos tuyos que borrar de nuestro lado.</p>
+
+  <h2>7. Seguridad</h2>
+  <p>Las llaves, los grupos y el historial se guardan cifrados con el Android Keystore. Los mensajes que viajan por la red mesh van firmados (ECDSA) para que nadie se haga pasar por otra persona. Ningún sistema es 100% seguro, pero la app está diseñada para que tus datos no salgan de los teléfonos de tu grupo.</p>
+
+  <h2>8. Menores de edad</h2>
+  <p>Quindello no está dirigida a menores de 13 años y no recopila datos de nadie a sabiendas.</p>
+
+  <h2>9. Uso en emergencias</h2>
+  <p>Quindello es una herramienta de apoyo. Su alcance depende del entorno y de los teléfonos cercanos, y no reemplaza a los servicios de emergencia oficiales. Si tienes señal, llama al 911.</p>
+
+  <h2>10. Cambios a esta política</h2>
+  <p>Si cambiamos esta política, publicaremos la nueva versión en esta página con su fecha de actualización.</p>
+</main>
+</body>
+</html>

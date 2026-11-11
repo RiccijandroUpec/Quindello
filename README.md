@@ -10,6 +10,9 @@
 [![Descargas](https://img.shields.io/github/downloads/RiccijandroUpec/Quindello/total?label=descargas&color=1FAF6E)](https://github.com/RiccijandroUpec/Quindello/releases)
 ![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
 ![Sin internet](https://img.shields.io/badge/funciona-sin%20internet-0E3B2A)
+[![Sitio web](https://img.shields.io/badge/sitio%20web-quindello-2E9E6B)](https://riccijandroupec.github.io/Quindello/)
+
+🌐 **Sitio web:** [riccijandroupec.github.io/Quindello](https://riccijandroupec.github.io/Quindello/) · [Política de privacidad](https://riccijandroupec.github.io/Quindello/privacidad.html)
 
 Quindello convierte tu celular Android en un **radio walkie talkie que funciona sin internet, sin datos móviles y sin señal de celular**. Los teléfonos se conectan **directamente entre ellos** por Bluetooth y forman una **red mesh**: cada teléfono retransmite los mensajes de los demás para llegar más lejos.
 
